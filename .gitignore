@@ -3,3 +3,11 @@
 ################################################################################
 
 /Bank/wwwroot/lib/jquery-validation-unobtrusive
+/Bank/wwwroot/lib/jquery-validation/dist
+/Bank/wwwroot/lib/jquery-validation
+/Bank/wwwroot/lib/jquery/dist
+/Bank/wwwroot/lib/jquery
+/Bank/wwwroot/lib/bootstrap/dist/fonts
+/.vs/Bank/v15
+/Bank/obj
+/.vs
