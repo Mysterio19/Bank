@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Bank.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Bank.Models;
 
-namespace Bank.Controllers
+namespace Bank.Web.Controllers
 {
     public class HomeController : Controller
     {

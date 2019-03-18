@@ -11,3 +11,9 @@
 /.vs/Bank/v15
 /Bank/obj
 /.vs
+/Bank/bin/Debug/netcoreapp2.1
+/Bank.BL/obj/Debug/netcoreapp2.1
+/Bank.BL/obj
+/Bank.DAL/bin/Debug/netcoreapp2.1
+/Bank.DAL/obj
+/Bank.BL/bin/Debug/netcoreapp2.1
