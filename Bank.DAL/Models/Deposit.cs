@@ -16,6 +16,7 @@ namespace Bank.DAL.Models
 
         public double PercentPerMonth { get; set; }
 
-        // ClientId
+        public int? ClientId { get; set; }
+        public Client Client { get; set; }
     }
 }

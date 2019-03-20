@@ -12,6 +12,7 @@ namespace Bank.DAL.Models
 
         public string Description { get; set; }
 
-        //ClientId
+        public int? ClientId { get; set; }
+        public Client Client { get; set; }
     }
 }

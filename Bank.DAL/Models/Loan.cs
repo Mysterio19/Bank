@@ -16,6 +16,7 @@ namespace Bank.DAL.Models
 
         public string CreationDate { get; set; }
 
-        //ClientId
+        public int? ClientId { get; set; }
+        public Client Client { get; set; }
     }
 }
