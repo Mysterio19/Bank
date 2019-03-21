@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Bank.DAL.Models
 {
-    public class Client
+    public class Client : Entity
     {
         public Client()
         {
@@ -15,7 +15,6 @@ namespace Bank.DAL.Models
             Notifications = new List<Notification>();
             Transactions = new List<Transaction>();
         }
-        public int Id { get; set; }
 
         public string FirstName { get; set; }
 

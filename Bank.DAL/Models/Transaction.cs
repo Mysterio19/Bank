@@ -6,11 +6,8 @@ using System.Text;
 
 namespace Bank.DAL.Models
 {
-    public class Transaction
+    public class Transaction : Entity
     {
-
-        public int Id { get; set; }
-
         public double Money { get; set; }
 
         public string Comment { get; set; }

@@ -4,10 +4,8 @@ using System.Text;
 
 namespace Bank.DAL.Models
 {
-    public class Deposit
+    public class Deposit : Entity
     {
-        public int Id { get; set; }
-
         public string CreationDate { get; set; }
 
         public string Money { get; set; }

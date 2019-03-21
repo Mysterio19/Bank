@@ -4,10 +4,8 @@ using System.Text;
 
 namespace Bank.DAL.Models
 {
-    public class Loan
+    public class Loan : Entity
     {
-        public int Id { get; set; }
-
         public double Money { get; set; }
 
         public double Percent { get; set; }

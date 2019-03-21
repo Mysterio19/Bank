@@ -4,10 +4,8 @@ using System.Text;
 
 namespace Bank.DAL.Models
 {
-    public class Admin
+    public class Admin : Entity
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
     }
 }

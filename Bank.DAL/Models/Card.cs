@@ -4,10 +4,8 @@ using System.Text;
 
 namespace Bank.DAL.Models
 {
-    public class Card
+    public class Card  : Entity
     {
-        public int Id { get; set; }
-
         public double CashbackPrecent { get; set; }
 
         public int Number { get; set; }
