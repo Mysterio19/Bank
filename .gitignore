@@ -18,3 +18,4 @@
 /Bank.DAL/bin/Debug/netcoreapp2.1
 /Bank.DAL/obj
 /Bank.BL/bin/Debug/netcoreapp2.1
+/Bank.Tests/obj
