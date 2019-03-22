@@ -6,15 +6,15 @@ namespace Bank.DAL.Models
 {
     public class Deposit : Entity
     {
-        public string CreationDate { get; set; }
+        public DateTime CreationDate { get; set; }
 
-        public string Money { get; set; }
+        public decimal Money { get; set; }
 
-        public string EndAt { get; set; }
+        public DateTime EndDate { get; set; }
 
         public double PercentPerMonth { get; set; }
 
-        public int? ClientId { get; set; }
-        public Client Client { get; set; }
+        public int? CardId { get; set; }
+        public Card Card { get; set; }
     }
 }

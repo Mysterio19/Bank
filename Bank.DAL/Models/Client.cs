@@ -10,7 +10,6 @@ namespace Bank.DAL.Models
         {
             Cards = new List<Card>();
             Comments = new List<Comment>();
-            Deposits = new List<Deposit>();
             Loans = new List<Loan>();
             Notifications = new List<Notification>();
             Transactions = new List<Transaction>();
@@ -33,8 +32,6 @@ namespace Bank.DAL.Models
         public ICollection<Card> Cards { get; set; }
 
         public ICollection<Comment> Comments { get; set; }
-
-        public ICollection<Deposit> Deposits { get; set; }
 
         public ICollection<Loan> Loans { get; set; }
 
