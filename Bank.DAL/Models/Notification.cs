@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Bank.DAL.Models
 {
-    public class Notification
+    public class Notification : Entity
     {
         public string Subject { get; set; }
 

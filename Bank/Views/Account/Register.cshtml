@@ -1,0 +1,42 @@
+@model Bank.Web.ViewModels.RegisterModel
+ 
+<h2>Sign up</h2>
+ 
+<form asp-action="Register" asp-controller="Account" asp-anti-forgery="true">
+    <div class="validation" asp-validation-summary="ModelOnly" />
+    <div>
+        <div class="form-group">
+            <label asp-for="UserName">Enter user name</label><br />
+            <input type="text" asp-for="UserName" />
+            <span asp-validation-for="UserName" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Password">Enter password</label><br />
+            <input asp-for="Password" />
+            <span asp-validation-for="Password" />
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmPassword">Confirm password</label><br />
+            <input asp-for="ConfirmPassword" />
+            <span asp-validation-for="ConfirmPassword" />
+        </div>
+        <div class="form-group">
+            <label asp-for="FirstName">First name</label><br />
+            <input type="text" asp-for="FirstName" />
+            <span asp-validation-for="FirstName" />
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName">Last name</label><br />
+            <input type="text" asp-for="LastName" />
+            <span asp-validation-for="LastName" />
+        </div>
+        <div class="form-group">
+            <label asp-for="INN">INN</label><br />
+            <input type="text" asp-for="INN" />
+            <span asp-validation-for="INN" />
+        </div>
+        <div>
+            <input type="submit" value="Sign up" />
+        </div>
+    </div>
+</form>
