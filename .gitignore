@@ -12,10 +12,13 @@
 /.vs/Bank/v15
 /Bank/obj
 /.vs
-/Bank/bin/Debug/netcoreapp2.1
-/Bank.BL/obj/Debug/netcoreapp2.1
+/Bank/bin
 /Bank.BL/obj
-/Bank.DAL/bin/Debug/netcoreapp2.1
+/Bank.BL/bin
+/Bank.DAL/bin
 /Bank.DAL/obj
-/Bank.BL/bin/Debug/netcoreapp2.1
 /Bank.Tests/obj
+/Bank.Tests/bin
+/Bank.Common/bin
+/Bank.Common/obj
+
