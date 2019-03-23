@@ -6,7 +6,8 @@ namespace Bank.BL.Services.Abstract
 {
     public interface IDepositService
     {
-        void Create(int userId, Deposit deposit);       
+        void Create(Deposit deposit);       
         IEnumerable<Deposit> ViewAllByUserId(int userId);
+        void TakeMoney(int userId);
     }
 }

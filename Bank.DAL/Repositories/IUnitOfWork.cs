@@ -9,8 +9,5 @@ namespace Bank.DAL.Repositories
         void CommitTransaction();
         void RollbackTransaction();
         void SaveChanges();
-
-
-        ICardRepository CardRepository { get; }
     }
 }

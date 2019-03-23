@@ -12,7 +12,9 @@ namespace Bank.DAL.Models
 
         public DateTime EndDate { get; set; }
 
-        public double PercentPerMonth { get; set; }
+        public decimal PercentPerMonth { get; set; }
+
+        public bool WasTaken { get; set; }
 
         public int? CardId { get; set; }
         public Card Card { get; set; }

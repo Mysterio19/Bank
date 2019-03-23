@@ -12,21 +12,14 @@ namespace Bank.DAL.Repositories
         private object _createdRepositoryLock;
         private bool _transactionClosed;
         private readonly BankDbContext _dbContext;
-        
-        private ICardRepository _cardRepository;
-
-        public UnitOfWork(BankDbContext dbContext, ICardRepository cardRepository)
+        public UnitOfWork(BankDbContext dbContext)
         {
             _dbContext = dbContext;
-            _cardRepository = cardRepository;
             _repositories = new Dictionary<Type, object>();
             _createdRepositoryLock = new object();
             _transactionClosed = true;
             _transaction = null;
         }
-
-        public ICardRepository CardRepository => _cardRepository;
-
 
         public IRepository<TEntity> Repository<TEntity>() where TEntity :  Entity
         {

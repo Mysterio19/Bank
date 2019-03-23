@@ -13,21 +13,18 @@ namespace Bank.Tests
 {
     
     public class StartupTests
-    {
-        
+    {    
         [Fact]
         public void ServiceProviderTesting()
         {
             var startup = new Startup();
 
             var serviceCollection = new ServiceCollection();
-            var directory = Directory.GetCurrentDirectory();
             startup.ConfigureServices(serviceCollection);
 
             var provider = serviceCollection.BuildServiceProvider();
 
             provider.GetService<IOptions<AppSettings>>().ShouldNotBeNull();
-            provider.GetService<BankDbContext>().ShouldNotBeNull();
         }
     }
 }
