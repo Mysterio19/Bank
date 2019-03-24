@@ -1,11 +1,7 @@
 ﻿using Bank.BL.Services.Abstract;
-using Bank.Web.Extensions;
 using Bank.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Bank.Web.Controllers
 {
