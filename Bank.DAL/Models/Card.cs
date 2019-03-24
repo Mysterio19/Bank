@@ -15,7 +15,7 @@ namespace Bank.DAL.Models
         
         public double CashbackPercent { get; set; }
 
-        public int Number { get; set; }
+        public decimal Number { get; set; }
 
         public DateTime ExpDate { get; set; }
 

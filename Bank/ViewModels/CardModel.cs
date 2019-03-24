@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using Bank.DAL.Models;
 using Bank.Web.Resources;
 
@@ -6,11 +7,12 @@ namespace Bank.Web.ViewModels
 {
     public class CardModel
     {
+        [Required]
         public string Name { get; set; }
         
         public double CashbackPercent { get; set; }
 
-        public int Number { get; set; }
+        public decimal Number { get; set; }
 
         public string ExpDate { get; set; }
 
@@ -36,6 +38,16 @@ namespace Bank.Web.ViewModels
                 CVV2 = entity.CVV2,
                 Money = Math.Round(entity.Money, 2),
                 ClientId = entity.ClientId ?? 0
+            };
+        }
+
+        public Card To(int clientId)
+        {
+            return new Card
+            {
+                Name = Name,
+                ClientId = clientId,
+                CashbackPercent = CashbackPercent
             };
         }
     }

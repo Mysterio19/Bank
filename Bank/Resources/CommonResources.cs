@@ -34,5 +34,8 @@ namespace Bank.Web.Resources
         public const string DateFormat = "dd/MM/yyyy";
         public const string CardsNotFound = "Cards did find. You can create new card";
         public const string Create = "Create";
+        public const string EnterCardName = "Enter card name";
+        public const string CashbackPercent = "Cashback percent";
+        public const string CreateCard = "Create a card";
     }
 }
