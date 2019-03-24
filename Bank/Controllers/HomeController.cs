@@ -19,9 +19,9 @@ namespace Bank.Web.Controllers
         [Authorize]
         public IActionResult Index()
         {
-            var model = new OverallModel();
+            var model = new OverallViewModel();
 
-            model.Cards = _cardService.GetAll(User.GetId()).Select(CardModel.From).ToList();
+            model.Cards = _cardService.GetAll(User.GetId()).Select(CardViewModel.From).ToList();
 
             return View(model);
         }

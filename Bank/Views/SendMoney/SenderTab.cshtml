@@ -1,0 +1,26 @@
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+@model Bank.Web.ViewModels.TransactionViewModel
+
+<div class="row m-20">
+    <div class="col-5">
+        <h2>@CommonResources.SendMoney</h2>
+    </div>    
+</div>
+
+<form asp-action="Create" asp-controller="SendMoney" asp-anti-forgery="true">
+    <div class="form-group">
+        <label asp-for="CardId">@CommonResources.CardId</label>
+        <input class="form-control" type="text" asp-for="CardId" />
+        <span asp-validation-for="CardId" class="text-danger" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PaymentValue">@CommonResources.PaymentValue</label>
+        <input class="form-control" type="text" asp-for="PaymentValue"/>
+        <span asp-validation-for="PaymentValue" class="text-danger" />
+    </div>
+    <div>
+        <input type="submit" class="btn btn-success" value="Send money" />
+    </div>
+</form>

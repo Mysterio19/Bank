@@ -43,5 +43,7 @@ namespace Bank.Web.Resources
         public const string EnterHeader = "Enter header";
         public const string EnterDescription = "Enter description";
         public const string Submit = "Submit";
+        public const string CardId = "Card number";
+        public const string PaymentValue = "Payment value:";
     }
 }

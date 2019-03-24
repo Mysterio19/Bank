@@ -1,34 +1,37 @@
-using System;
-using Bank.BL.Services.Abstract;
+﻿using Bank.BL.Services.Abstract;
 using Bank.Web.Extensions;
 using Bank.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Bank.Web.Controllers
 {
-    public class CardController : Controller
+    public class SendMoneyController : Controller
     {
-        private readonly ICardService _cardService;
+        private readonly ISendMoneyService _sendMoneyService;
 
-        public CardController(ICardService cardService)
+        public SendMoneyController(ISendMoneyService sendMoneyService)
         {
-            _cardService = cardService;
+            _sendMoneyService = sendMoneyService;
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult SenderTab()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(CardViewModel model)
+        public IActionResult Create(TransactionViewModel model)
         {
             if (!ModelState.IsValid) return View();
-            
+
             try
             {
-                _cardService.Create(model.To(User.GetId()));
+          //      _sendMoneyService.SendMoney(model.To(User.GetId()));
             }
             catch (Exception e)
             {
@@ -40,3 +43,4 @@ namespace Bank.Web.Controllers
         }
     }
 }
+

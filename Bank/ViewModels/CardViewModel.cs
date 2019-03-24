@@ -5,7 +5,7 @@ using Bank.Web.Resources;
 
 namespace Bank.Web.ViewModels
 {
-    public class CardModel
+    public class CardViewModel
     {
         [Required]
         public string Name { get; set; }
@@ -24,11 +24,11 @@ namespace Bank.Web.ViewModels
 
         public int ClientId { get; set; }
 
-        public static CardModel From(Card entity)
+        public static CardViewModel From(Card entity)
         {
             string format = CommonResources.DateFormat;
             
-            return new CardModel
+            return new CardViewModel
             {
                 Name = entity.Name,
                 CashbackPercent = entity.CashbackPercent,
