@@ -1,0 +1,51 @@
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@model Bank.Web.ViewModels.OverallModel
+ 
+<div class="row">
+    <h2 class="col-2">
+       @CommonResources.PersonalCabinet
+    </h2>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                @CommonResources.Cards
+            </div>
+            <ul class="list-group list-group-flush">
+                @if (Model.Cards.Count > 0)
+                {
+                     foreach (var card in Model.Cards)
+                     {
+                         <li class="list-group-item">
+                             <div class="row">
+                                 <div class="col-6">
+                                     <p>@card.Name</p>
+                                     <p>**@card.Number.ToString().Substring(0, 3)</p>
+                                 </div>
+                                 <div class="col-2">@card.Money @CommonResources.UAH</div>
+                             </div>
+                         </li>
+                     }
+                }
+                else
+                {
+                    <li class="list-group-item">
+                        <p>@CommonResources.CardsNotFound</p>
+                        <p>
+                            <a class="btn btn-success" 
+                               asp-controller="Card" asp-action="Create">@CommonResources.Create</a>
+                        </p>    
+                    </li>
+                }
+            </ul>
+        </div>    
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-12"></div>
+    <div class="col-md-6 col-sm-6 col-xs-12"></div>
+</div>
+

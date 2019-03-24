@@ -1,0 +1,15 @@
+@model dynamic
+
+  <div class="row">
+       <div class="col-2 d-flex justify-content-center align-items-center p-0">
+           <img src="@Model.Image" height="50px" width="50px"></img>    
+       </div>
+       <div class="col-10" style="padding: 0">
+           <p class="m-0">
+               <b>@Model.Title</b>
+           </p>  
+           <p>
+              @Model.Description
+           </p>
+       </div>
+</div>
