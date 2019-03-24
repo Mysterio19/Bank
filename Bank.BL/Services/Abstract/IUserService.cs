@@ -8,8 +8,8 @@ namespace Bank.BL.Services.Abstract
         Client GetUserByUserNameAndPassword(string userName, string password);
         
         Client GetUserByUserName(string userName);
-     
-        Task Authenticate(string userName);
+
+        Task AuthenticateAsync(Client client);
 
         Client Create(Client client);
     }

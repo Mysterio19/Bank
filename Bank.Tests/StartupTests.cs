@@ -40,6 +40,9 @@ namespace Bank.Tests
             
             provider.GetService<BankDbContext>().ShouldNotBeNull();
             
+            provider.GetService<ICardService>().ShouldNotBeNull();
+            provider.GetService<ICardService>().ShouldBeOfType<CardService>();
+            
             // TODO: Shevchenko will write test for injector
         }
     }

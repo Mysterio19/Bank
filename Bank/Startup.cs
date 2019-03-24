@@ -43,6 +43,7 @@ namespace Bank.Web
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IDepositService, DepositService>();
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<ICardService, CardService>();
             services.AddLogging();
             services.Configure<AppSettings>(Configuration.GetSection("ConnectionStrings"));
             

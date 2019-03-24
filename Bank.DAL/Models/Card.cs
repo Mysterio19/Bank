@@ -10,14 +10,16 @@ namespace Bank.DAL.Models
         {
             Deposits = new List<Deposit>();
         }
+
+        public string Name { get; set; }
         
-        public double CashbackPrecent { get; set; }
+        public double CashbackPercent { get; set; }
 
         public int Number { get; set; }
 
-        public string ExpDate { get; set; }
+        public DateTime ExpDate { get; set; }
 
-        public string CreationDate { get; set; }
+        public DateTime CreationDate { get; set; }
 
         public int CVV2 { get; set; }
 

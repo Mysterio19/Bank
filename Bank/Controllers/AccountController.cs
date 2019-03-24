@@ -37,7 +37,7 @@ namespace Bank.Web.Controllers
                 
                 if (user != null)
                 {
-                    await _userService.Authenticate(model.UserName);
+                    await _userService.AuthenticateAsync(user);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -68,12 +68,12 @@ namespace Bank.Web.Controllers
             try
             {
                 var user = _userService.Create(model.To());
-                await _userService.Authenticate(user.UserName);
+                await _userService.AuthenticateAsync(user);
                 return RedirectToAction("Index", "Home");
             }
             catch (Exception e)
             {
-                ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+                ModelState.AddModelError("", CommonResources.LoginOrPasswordIsWrong);
             }
             
             return View(model);

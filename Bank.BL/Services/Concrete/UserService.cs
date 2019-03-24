@@ -63,11 +63,12 @@ namespace Bank.BL.Services.Concrete
             return client;
         }
         
-        public async Task Authenticate(string userName)
+        public async Task AuthenticateAsync(Client client)
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, userName)
+                new Claim(ClaimsIdentity.DefaultNameClaimType, client.UserName),
+                new Claim(ClaimTypes.Sid, client.Id.ToString())
             };
             
             ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
