@@ -44,6 +44,7 @@ namespace Bank.Web
             services.AddTransient<IDepositService, DepositService>();
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<ICardService, CardService>();
+            services.AddTransient<ICommentService, CommentService>();
             services.AddLogging();
             services.Configure<AppSettings>(Configuration.GetSection("ConnectionStrings"));
             

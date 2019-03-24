@@ -6,9 +6,10 @@ namespace Bank.DAL.Models
 {
     public class Comment  : Entity
     {
-        public string Text { get; set;  }
+        public string Header { get; set; }
+        public string Description { get; set;  }
 
         public int? ClientId { get; set; }
-        public Client Client { get; set; }
+        public virtual Client Client { get; set; }
     }
 }

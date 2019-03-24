@@ -43,6 +43,9 @@ namespace Bank.Tests
             provider.GetService<ICardService>().ShouldNotBeNull();
             provider.GetService<ICardService>().ShouldBeOfType<CardService>();
             
+            provider.GetService<ICommentService>().ShouldNotBeNull();
+            provider.GetService<ICommentService>().ShouldBeOfType<CommentService>();
+            
             // TODO: Shevchenko will write test for injector
         }
     }

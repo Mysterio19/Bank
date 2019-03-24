@@ -37,5 +37,11 @@ namespace Bank.Web.Resources
         public const string EnterCardName = "Enter card name";
         public const string CashbackPercent = "Cashback percent";
         public const string CreateCard = "Create a card";
+        public const string Comments = "Comments";
+        public const string WriteComments = "Write a comment";
+        public const string SendMoney = "Send money";
+        public const string EnterHeader = "Enter header";
+        public const string EnterDescription = "Enter description";
+        public const string Submit = "Submit";
     }
 }
