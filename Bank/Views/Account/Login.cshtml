@@ -47,12 +47,12 @@
                         <div class="form-group">
                             <label asp-for="UserName">@CommonResources.EnterUserName</label>
                             <input class="form-control" type="text" asp-for="UserName" />
-                            <span asp-validation-for="UserName" />
+                            <span asp-validation-for="UserName" class="text-danger" />
                         </div>
                         <div class="form-group">
                             <label asp-for="Password">@CommonResources.EnterPassword</label>
                             <input class="form-control" asp-for="Password" />
-                            <span asp-validation-for="Password" />
+                            <span asp-validation-for="Password" class="text-danger" />
                         </div>
                         <div class="form-group">
                             <input type="submit" value="@CommonResources.Login" class="btn btn-success" />
