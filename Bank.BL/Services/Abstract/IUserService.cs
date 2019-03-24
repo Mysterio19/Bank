@@ -5,8 +5,10 @@ namespace Bank.BL.Services.Abstract
 {
     public interface IUserService
     {
-        Client GetUserByUserName(string userName);
+        Client GetUserByUserNameAndPassword(string userName, string password);
         
+        Client GetUserByUserName(string userName);
+     
         Task Authenticate(string userName);
 
         Client Create(Client client);

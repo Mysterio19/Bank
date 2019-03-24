@@ -1,8 +1,8 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
-    padding-top: 50px;
     padding-bottom: 20px;
+    background: url('../images/background.png');
 }
 
 /* Wrapping element */
@@ -34,4 +34,25 @@ body {
     .carousel-caption {
         display: none;
     }
+}
+
+
+.icon.sendmoney {
+    background: url("../images/sendmoney.svg");
+}
+
+.icon.calendar {
+    background: url("../images/calendar.svg");
+}
+
+.icon.graph {
+    background: url("../images/graph.svg");
+}
+
+.icon.percent {
+    background: url("../images/percent.svg");
+}
+
+.m-20 {
+    margin: 20px 0;
 }

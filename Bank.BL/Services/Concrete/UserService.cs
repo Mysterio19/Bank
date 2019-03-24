@@ -26,6 +26,12 @@ namespace Bank.BL.Services.Concrete
             _contextAccessor = contextAccessor;
             _logger = loggerFactory.CreateLogger<UserService>();
         }
+        
+        public Client GetUserByUserNameAndPassword(string userName, string password)
+        {
+            return _uow.Repository<Client>().GetQueryable().SingleOrDefault(
+                client => client.UserName == userName && !client.IsBlocked && client.Password == password);
+        }
 
         public Client GetUserByUserName(string userName)
         {

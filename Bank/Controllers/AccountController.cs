@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Bank.BL.Services.Abstract;
+using Bank.Web.Resources;
 using Bank.Web.ViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -32,12 +33,16 @@ namespace Bank.Web.Controllers
 
             try
             {
-                var user = _userService.GetUserByUserName(model.UserName);
+                var user = _userService.GetUserByUserNameAndPassword(model.UserName, model.Password);
                 
                 if (user != null)
                 {
                     await _userService.Authenticate(model.UserName);
                     return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", CommonResources.LoginOrPasswordIsWrong);
                 }
             }
             catch (Exception e)
