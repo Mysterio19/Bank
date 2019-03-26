@@ -17,6 +17,6 @@ namespace Bank.DAL.Models
         public bool WasTaken { get; set; }
 
         public int? CardId { get; set; }
-        public Card Card { get; set; }
+        public virtual Card Card { get; set; }
     }
 }

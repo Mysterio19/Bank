@@ -23,6 +23,8 @@ namespace Bank.Web.ViewModels
         public decimal Money { get; set; }
 
         public int ClientId { get; set; }
+        
+        public int Id { get; set; }
 
         public static CardViewModel From(Card entity)
         {
@@ -37,7 +39,8 @@ namespace Bank.Web.ViewModels
                 CreationDate = entity.CreationDate.ToString(format),
                 CVV2 = entity.CVV2,
                 Money = Math.Round(entity.Money, 2),
-                ClientId = entity.ClientId ?? 0
+                ClientId = entity.ClientId ?? 0,
+                Id = entity.Id
             };
         }
 

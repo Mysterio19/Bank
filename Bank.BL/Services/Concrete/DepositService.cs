@@ -46,7 +46,7 @@ namespace Bank.BL.Services.Concrete
 
         public IEnumerable<Deposit> ViewAllByUserId(int userId)
         {
-            return _uow.Repository<Client>().GetById(userId).Cards.SelectMany(c => c.Deposits);
+            return _uow.Repository<Client>().GetById(userId).Cards.SelectMany(c => c.Deposits).Where(c => !c.WasTaken);
         }
 
         public void TakeMoney(int userId)

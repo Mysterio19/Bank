@@ -29,15 +29,15 @@ namespace Bank.DAL.Models
 
         public bool IsCompany { get; set; }
 
-        public ICollection<Card> Cards { get; set; }
+        public virtual ICollection<Card> Cards { get; set; }
 
-        public ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
 
-        public ICollection<Loan> Loans { get; set; }
+        public virtual ICollection<Loan> Loans { get; set; }
 
-        public ICollection<Notification> Notifications { get; set; }
+        public virtual ICollection<Notification> Notifications { get; set; }
 
-        public ICollection<Transaction> Transactions { get; set; }
+        public virtual ICollection<Transaction> Transactions { get; set; }
 
     }
 }

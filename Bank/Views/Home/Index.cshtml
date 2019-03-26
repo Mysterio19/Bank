@@ -19,18 +19,18 @@
             <ul class="list-group list-group-flush">
                 @if (Model.Cards.Count > 0)
                 {
-                     foreach (var card in Model.Cards)
-                     {
-                         <li class="list-group-item">
-                             <div class="row">
-                                 <div class="col-6">
-                                     <p>@card.Name</p>
-                                     <p>**@card.Number.ToString().Substring(0, 3)</p>
-                                 </div>
-                                 <div class="col-2">@card.Money @CommonResources.UAH</div>
-                             </div>
-                         </li>
-                     }
+                    foreach (var card in Model.Cards)
+                    {
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-6">
+                                    <p>@card.Name</p>
+                                    <p>**@card.Number.ToString().Substring(0, 3)</p>
+                                </div>
+                                <div class="col-2">@card.Money @CommonResources.UAH</div>
+                            </div>
+                        </li>
+                    }
                 }
                 else
                 {
@@ -45,7 +45,46 @@
             </ul>
         </div>    
     </div>
-    <div class="col-md-6 col-sm-6 col-xs-12"></div>
+    
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        
+        <div class="card">
+            <div class="card-header">
+                @CommonResources.Deposits
+            </div>
+            <ul class="list-group list-group-flush">
+                @if (Model.Deposits.Count > 0)
+                {
+                    foreach (var deposit in Model.Deposits)
+                    {
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-6">
+                                    <p>@Model.Cards.First(c => c.Id == deposit.CardId).Name</p>
+                                    <p>@CommonResources.EndDate @deposit.EndDate</p>
+                                </div>
+                                <div class="col-2">@deposit.Money @CommonResources.UAH</div>
+                            </div>
+                        </li>
+                    }
+                }
+                else
+                {
+                    <li class="list-group-item">
+                        <p>@CommonResources.DepositsNotFound</p>
+                        <p>
+                            <a class="btn btn-success" 
+                               asp-controller="Deposit" asp-action="Create">@CommonResources.Create</a>
+                        </p>    
+                    </li>
+                }
+            </ul>
+        </div>   
+        
+    </div>
+    
+    
+    
     <div class="col-md-6 col-sm-6 col-xs-12"></div>
 </div>
 

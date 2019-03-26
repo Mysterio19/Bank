@@ -26,7 +26,7 @@ namespace Bank.DAL.Models
         public decimal Money { get; set; }
 
         public int? ClientId { get; set; }
-        public Client Client { get; set; }
+        public virtual Client Client { get; set; }
         
         public virtual ICollection<Deposit> Deposits { get; set; }
     }

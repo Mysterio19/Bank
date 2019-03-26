@@ -45,5 +45,11 @@ namespace Bank.Web.Resources
         public const string Submit = "Submit";
         public const string CardId = "Card number";
         public const string PaymentValue = "Payment value:";
+        public const string EnterMoneyCount = "Enter money count";
+        public const string CreateDeposit = "Create deposit";
+        public const string ChoosePercent = "Choose percent";
+        public const string Deposits = "Deposits";
+        public const string EndDate = "End date";
+        public const string DepositsNotFound = "Deposits did not find";
     }
 }
