@@ -6,7 +6,7 @@ namespace Bank.Web.ViewModels
     public class TransactionViewModel
     {
         [Required]
-        public int CardNumber { get; set; }
+        public string CardNumber { get; set; }
 
         [Required]
         public double PaymentValue { get; set; }

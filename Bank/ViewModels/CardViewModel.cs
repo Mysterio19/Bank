@@ -12,13 +12,13 @@ namespace Bank.Web.ViewModels
         
         public double CashbackPercent { get; set; }
 
-        public decimal Number { get; set; }
+        public string Number { get; set; }
 
         public string ExpDate { get; set; }
 
         public string CreationDate { get; set; }
 
-        public int CVV2 { get; set; }
+        public string CVV2 { get; set; }
 
         public decimal Money { get; set; }
 

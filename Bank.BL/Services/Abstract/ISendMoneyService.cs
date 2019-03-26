@@ -8,6 +8,6 @@ namespace Bank.BL.Services.Abstract
     {
         void SendMoney(Transaction transaction);
 
-        Client GetClientByCardNumber(int cardNumber);
+        Client GetClientByCardNumber(string cardNumber);
     }
 }

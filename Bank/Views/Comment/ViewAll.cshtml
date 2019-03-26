@@ -1,0 +1,52 @@
+@model CommentModels
+
+<div class="row">
+    <h2 class="col-6">
+        @CommonResources.Comments
+    </h2>
+</div>
+
+<div class="row">
+    <div class="p-0 card col-md-12 col-sm-12 col-xs-12">
+        <div class="card-header">
+            @CommonResources.WriteComments
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" asp-controller="Comment" asp-anti-forgery="true">
+                <div class="validation" asp-validation-summary="ModelOnly" />
+                <div>
+                    <div class="form-group">
+                        <label asp-for="Header">@CommonResources.EnterHeader</label>
+                        <input class="form-control" type="text" asp-for="Header" />
+                        <span asp-validation-for="Header" class="text-danger" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description">@CommonResources.EnterDescription</label>
+                        <input class="form-control" asp-for="Description" />
+                        <span asp-validation-for="Description" class="text-danger" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="@CommonResources.Create" class="btn btn-success" />
+                    </div>
+                    <div class="form-group">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    @foreach (var card in Model.Comments)
+    {
+        <div class="card col-md-4 col-sm-4 col-xs-12 mt-5" style="background: transparent">
+            <div class="card-header">
+                @card.Header
+            </div>
+            <div class="card-body">
+                @card.Description
+            </div>
+        </div>
+    }
+</div>
+
+

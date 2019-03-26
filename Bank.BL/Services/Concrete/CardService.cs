@@ -39,15 +39,15 @@ namespace Bank.BL.Services.Concrete
             card.CreationDate = DateTime.UtcNow;
             card.ExpDate = DateTime.UtcNow.AddYears(3);
             
-            var firstPart = random.Next(1000_0000, 9999_9999).ToString();
-            var secondPart = random.Next(1000_0000, 9999_9999).ToString();
+            var firstPart = random.Next(1000_0000, 9999_9999).ToString().PadRight(8);
+            var secondPart = random.Next(1000_0000, 9999_9999).ToString().PadRight(8);
             
-            var number = decimal.Parse(firstPart + secondPart);
-            card.Number = number;
+            card.Number = firstPart + secondPart;
 
-            var cvv2 = random.Next(0, 999);
-            card.CVV2 = cvv2;
-
+            var cvv2 = random.Next(0, 9999);
+            card.CVV2 = cvv2.ToString().PadRight(4);
+            card.Money = 0;
+            
             _uow.Repository<Card>().Add(card);
             _uow.SaveChanges();
             

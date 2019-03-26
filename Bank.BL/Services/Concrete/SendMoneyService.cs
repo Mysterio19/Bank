@@ -30,7 +30,7 @@ namespace Bank.BL.Services.Concrete
             _uow.Repository<Transaction>().Add(transaction);
         }
 
-        public Client GetClientByCardNumber(int cardNumber)
+        public Client GetClientByCardNumber(string cardNumber)
         {
              return _uow.Repository<Client>().GetQueryable()
                 .FirstOrDefault((client) => client.Cards.Any(card => card.Number == cardNumber));
