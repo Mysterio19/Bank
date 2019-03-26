@@ -6,38 +6,26 @@ namespace Bank.Web.ViewModels
     public class TransactionViewModel
     {
         [Required]
-        public string CardId { get; set; }
+        public int CardNumber { get; set; }
 
         [Required]
         public double PaymentValue { get; set; }
 
         public static TransactionViewModel From(Transaction entity)
         {
-            return null;
-            //string format = CommonResources.DateFormat;
-
-            //return new CardViewModel
-            //{
-            //    Name = entity.Name,
-            //    CashbackPercent = entity.CashbackPercent,
-            //    Number = entity.Number,
-            //    ExpDate = entity.ExpDate.ToString(format),
-            //    CreationDate = entity.CreationDate.ToString(format),
-            //    CVV2 = entity.CVV2,
-            //    Money = Math.Round(entity.Money, 2),
-            //    ClientId = entity.ClientId ?? 0
-            //};
+            return new TransactionViewModel
+            {
+                PaymentValue = entity.Money
+            };
         }
 
         public Transaction To(int clientId)
         {
-            return null;
-            //return new Card
-            //{
-            //    Name = Name,
-            //    ClientId = clientId,
-            //    CashbackPercent = CashbackPercent
-            //};
+            return new Transaction
+            {
+                ClientId = clientId,
+                Money = PaymentValue,
+            };
         }
     }
 }

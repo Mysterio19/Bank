@@ -1,4 +1,5 @@
 ﻿using Bank.BL.Services.Abstract;
+using Bank.Web.Extensions;
 using Bank.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -27,7 +28,10 @@ namespace Bank.Web.Controllers
 
             try
             {
-          //      _sendMoneyService.SendMoney(model.To(User.GetId()));
+                var transaction = model.To(User.GetId());
+                transaction.Receiver = _sendMoneyService.GetClientByCardNumber(model.CardNumber);
+
+                 _sendMoneyService.SendMoney(model.To(User.GetId()));
             }
             catch (Exception e)
             {

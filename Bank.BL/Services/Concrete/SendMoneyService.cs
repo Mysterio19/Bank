@@ -1,8 +1,10 @@
 ﻿using Bank.BL.Services.Abstract;
+using Bank.DAL.Extensions;
 using Bank.DAL.Models;
 using Bank.DAL.Repositories;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 
@@ -19,9 +21,20 @@ namespace Bank.BL.Services.Concrete
             _loggerFactory = loggerFactory;
         }
 
-        public bool SendMoney(Transaction transaction)
+        public void SendMoney(Transaction transaction)
         {
-            throw new NotImplementedException();
+            transaction.CreatedAt = transaction.UpdateAt = DateTime.UtcNow;
+            transaction.IsDeleted = false;
+            transaction.Comment = transaction.Comment == null ? string.Empty : transaction.Comment;
+            
+            _uow.Repository<Transaction>().Add(transaction);
+        }
+
+        public Client GetClientByCardNumber(int cardNumber)
+        {
+             return _uow.Repository<Client>().GetQueryable()
+                .FirstOrDefault((client) => client.Cards.Any(card => card.Number == cardNumber));
+
         }
     }
 }

@@ -6,6 +6,8 @@ namespace Bank.BL.Services.Abstract
 {
     public interface ISendMoneyService
     {
-        bool SendMoney(Transaction transaction);
+        void SendMoney(Transaction transaction);
+
+        Client GetClientByCardNumber(int cardNumber);
     }
 }
