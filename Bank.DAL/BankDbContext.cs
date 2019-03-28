@@ -8,18 +8,12 @@ namespace Bank.DAL
     {
         private static bool _created = false;
 
-        public BankDbContext(bool createDb=true)
+        public BankDbContext(DbContextOptions options) : base(options)
+        {}
+        
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!_created && createDb)                           // todo is File with name Bank.db exists
-            {
-                _created = true;
-                Database.EnsureDeleted();
-                Database.EnsureCreated();
-            }
-        }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionbuilder)
-        {
-            optionbuilder.UseSqlite(@"Data Source=Bank.db");
+            optionsBuilder.UseSqlite("Filename=Bank.db");
         }
 
         public DbSet<Admin> Admins { get; set; }

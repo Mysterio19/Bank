@@ -50,9 +50,8 @@ namespace Bank.Web
            
             services.AddLogging();
             services.Configure<AppSettings>(Configuration.GetSection("ConnectionStrings"));
-            
-            services.AddDbContext<BankDbContext>((provider, options) =>
-                options.UseSqlite(provider.GetService<IOptions<AppSettings>>().Value.SqlLite));
+
+            services.AddEntityFrameworkSqlite().AddDbContext<BankDbContext>();
             
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => //CookieAuthenticationOptions
