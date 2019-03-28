@@ -2,6 +2,7 @@ using System.IO;
 using Bank.BL.Services.Abstract;
 using Bank.BL.Services.Concrete;
 using Bank.DAL;
+using Bank.DAL.Models;
 using Bank.Web;
 using Bank.Web.Common;
 using Microsoft.AspNetCore.Http;
@@ -48,9 +49,9 @@ namespace Bank.Tests
 
             provider.GetService<ISendMoneyService>().ShouldNotBeNull();
             provider.GetService<ISendMoneyService>().ShouldBeOfType<SendMoneyService>();
-            
 
-            // TODO: Shevchenko will write test for injector
+            provider.GetService<ILoanService>().ShouldNotBeNull();
+            provider.GetService<ILoanService>().ShouldBeOfType<LoanService>();
         }
     }
 }

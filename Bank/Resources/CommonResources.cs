@@ -51,5 +51,7 @@ namespace Bank.Web.Resources
         public const string Deposits = "Deposits";
         public const string EndDate = "End date";
         public const string DepositsNotFound = "Deposits did not find";
+        public const string Register = "Register";
+        public const string ChooseCard = "Choose card";
     }
 }

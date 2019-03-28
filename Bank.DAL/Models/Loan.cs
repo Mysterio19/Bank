@@ -10,11 +10,12 @@ namespace Bank.DAL.Models
 
         public double Percent { get; set; }
 
-        public string ExpDate { get; set; }
+        public DateTime ExpDate { get; set; }
+        public DateTime CreationDate { get; set; }
 
-        public string CreationDate { get; set; }
+        public bool WasReplenished { get; set; }
 
-        public int? ClientId { get; set; }
-        public Client Client { get; set; }
+        public Card Card { get; set; }
+        public int? CardId { get; set; }
     }
 }
