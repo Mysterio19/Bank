@@ -1,0 +1,39 @@
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+@model Bank.Web.ViewModels.LoanModel
+
+<div class="row m-20">
+    <div class="col-5">
+        <h2>@CommonResources.CreateLoan</h2>
+    </div>    
+</div>
+
+<form asp-action="Create" asp-controller="Loan" asp-anti-forgery="true">
+    <div class="form-group">
+        <label asp-for="Money">@CommonResources.EnterMoneyCount</label>
+        <input class="form-control" type="text" asp-for="Money" />
+        <span asp-validation-for="Money" class="text-danger" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Percent">@CommonResources.CashbackPercent</label>
+        <input readonly="readonly" class="form-control" type="number" value="12" asp-for="Percent" />
+        <span asp-validation-for="Percent" class="text-danger" />
+    </div>
+    <div class="form-group">
+        <label asp-for="CardId">@CommonResources.ChooseCard</label>
+        <select class="form-control" asp-for="@Model.CardId">
+            @foreach (var item in Model.Cards)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <div class="validation" asp-validation-summary="ModelOnly" />
+    </div>
+    <div>
+        <input type="submit" class="btn btn-success" value="Sign up" />
+    </div>
+</form>

@@ -1,4 +1,5 @@
 using System.IO;
+using Bank.BL.Providers;
 using Bank.BL.Services.Abstract;
 using Bank.BL.Services.Concrete;
 using Bank.DAL;
@@ -52,6 +53,12 @@ namespace Bank.Tests
 
             provider.GetService<ILoanService>().ShouldNotBeNull();
             provider.GetService<ILoanService>().ShouldBeOfType<LoanService>();
+            
+            provider.GetService<IMonthProvider>().ShouldNotBeNull();
+            provider.GetService<IMonthProvider>().ShouldBeOfType<MonthProvider>();
+            
+            provider.GetService<IFormulaProvider>().ShouldNotBeNull();
+            provider.GetService<IFormulaProvider>().ShouldBeOfType<PercentFormula>();
         }
     }
 }

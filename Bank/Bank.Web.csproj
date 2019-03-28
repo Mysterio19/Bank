@@ -11,6 +11,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
     <DotNetCliToolReference Include="BundlerMinifier.Core" Version="2.6.362" />
+    <PackageReference Include="Scrutor">
+      <Version>3.0.2</Version>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>

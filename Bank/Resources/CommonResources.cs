@@ -53,5 +53,7 @@ namespace Bank.Web.Resources
         public const string DepositsNotFound = "Deposits did not find";
         public const string Register = "Register";
         public const string ChooseCard = "Choose card";
+        public const string Loans = "Loans";
+        public const string CreateLoan = "Create a loan";
     }
 }

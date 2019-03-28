@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Bank.DAL.Models;
 using Bank.Web.Resources;
 
@@ -5,9 +6,15 @@ namespace Bank.Web.ViewModels
 {
     public class LoanModel
     {
-        public double Money { get; set; }
+        public LoanModel()
+        {
+            Cards = new List<Card>();
+        }
+        
+        public int Id { get; set; }
+        public decimal Money { get; set; }
 
-        public double Percent { get; set; }
+        public decimal Percent { get; set; }
 
         public string ExpDate { get; set; }
 
@@ -15,11 +22,13 @@ namespace Bank.Web.ViewModels
 
         public int? CardId { get; set; }
 
+        public ICollection<Card> Cards { get; set; }
 
         public static LoanModel From(Loan entity)
         {
             return new LoanModel
             {
+                Id = entity.Id,
                 Money = entity.Money,
                 Percent = entity.Percent,
                 ExpDate = entity.ExpDate.ToString(CommonResources.DateFormat),
@@ -29,13 +38,14 @@ namespace Bank.Web.ViewModels
         }
         
         
-        public Loan To(LoanModel model)
+        public Loan To()
         {
             return new Loan
             {
-                Money = model.Money,
-                Percent = model.Percent,
-                CardId = model.CardId
+                Id = Id,
+                Money = Money,
+                Percent = Percent,
+                CardId = CardId
             };
         }
         

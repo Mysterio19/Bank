@@ -8,9 +8,11 @@ namespace Bank.Web.ViewModels
         {
             Cards = new List<CardViewModel>();
             Deposits = new List<DepositModel>();
+            Loans = new List<LoanModel>();
         }
         
         public List<CardViewModel> Cards { get; set; }
         public List<DepositModel> Deposits { get; set; }
+        public List<LoanModel> Loans { get; set; }
     }
 }

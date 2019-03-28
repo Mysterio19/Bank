@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Bank.BL.Providers;
 using Bank.BL.Services.Abstract;
 using Bank.BL.Services.Concrete;
 using Bank.DAL;
@@ -19,6 +20,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
+using Scrutor;
 
 namespace Bank.Web
 {
@@ -47,6 +49,9 @@ namespace Bank.Web
             services.AddTransient<ISendMoneyService, SendMoneyService>();
             services.AddTransient<ICommentService, CommentService>();
             services.AddTransient<ILoanService, LoanService>();
+
+            services.AddTransient<IFormulaProvider, PercentFormula>();
+            services.AddTransient<IMonthProvider, MonthProvider>();
            
             services.AddLogging();
             services.Configure<AppSettings>(Configuration.GetSection("ConnectionStrings"));
