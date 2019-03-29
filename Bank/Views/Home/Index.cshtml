@@ -108,7 +108,7 @@
                 @CommonResources.Loans
             </div>
             <ul class="list-group list-group-flush">
-                @if (Model.Deposits.Count > 0)
+                @if (Model.Loans.Count > 0)
                 {
                     foreach (var loan in Model.Loans)
                     {
@@ -120,17 +120,17 @@
                                 </div>
                                 <div class="col-4">
                                     <p>@loan.Money @CommonResources.UAH</p>    
-                                    <form asp-action="Refill" asp-controller="Loan" asp-anti-forgery="true">
-                                        <input name="@nameof(LoanModel.Id)" value="@loan.Id"/>
+                                    <form asp-action="Refill" asp-controller="Loan">
+                                        <input type="hidden" name="@nameof(LoanModel.Id)" value="@loan.Id"/>
+                                        <input type="submit" class="btn btn-success" value="@CommonResources.Refill" />
                                     </form>
                                 </div>
                             </div>
                         </li>
                         <li class="list-group-item">
-                            <p>@CommonResources.DepositsNotFound</p>
                             <p>
                                 <a class="btn btn-success" 
-                                   asp-controller="Deposit" asp-action="Create">@CommonResources.Create</a>
+                                   asp-controller="Loan" asp-action="Create">@CommonResources.Create</a>
                             </p>    
                         </li>
                     }
@@ -141,7 +141,7 @@
                         <p>@CommonResources.DepositsNotFound</p>
                         <p>
                             <a class="btn btn-success" 
-                               asp-controller="Deposit" asp-action="Create">@CommonResources.Create</a>
+                               asp-controller="Loan" asp-action="Create">@CommonResources.Create</a>
                         </p>    
                     </li>
                 }

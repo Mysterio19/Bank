@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Bank.Web.Resources
 {
@@ -55,5 +57,25 @@ namespace Bank.Web.Resources
         public const string ChooseCard = "Choose card";
         public const string Loans = "Loans";
         public const string CreateLoan = "Create a loan";
+        public const string ChooseDate = "Choose date";
+        public const string Refill = "Refill";
+
+        public static Dictionary<string, string> GetPeriodNames()
+        {
+            var dict = new Dictionary<string, string>
+            {
+                {"1 months", DateTime.UtcNow.AddMonths(1).ToString(DateFormat)},
+                {"3 months", DateTime.UtcNow.AddMonths(3).ToString(DateFormat)},
+                {"6 months", DateTime.UtcNow.AddMonths(6).ToString(DateFormat)},
+                {"12 months", DateTime.UtcNow.AddMonths(12).ToString(DateFormat)}
+            };
+            return dict;
+        }
+
+        public static DateTime ParseDate(string date)
+        {
+            return DateTime.ParseExact(date, CommonResources.DateFormat, null);
+        }
+        
     }
 }

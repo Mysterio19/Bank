@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Bank.DAL.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -99,32 +99,6 @@ namespace Bank.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Loans",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    CreatedAt = table.Column<DateTime>(nullable: true),
-                    UpdateAt = table.Column<DateTime>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    Money = table.Column<double>(nullable: false),
-                    Percent = table.Column<double>(nullable: false),
-                    ExpDate = table.Column<string>(nullable: true),
-                    CreationDate = table.Column<string>(nullable: true),
-                    ClientId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Loans", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Loans_Clients_ClientId",
-                        column: x => x.ClientId,
-                        principalTable: "Clients",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Notifications",
                 columns: table => new
                 {
@@ -199,6 +173,33 @@ namespace Bank.DAL.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Loans",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CreatedAt = table.Column<DateTime>(nullable: true),
+                    UpdateAt = table.Column<DateTime>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    Money = table.Column<decimal>(nullable: false),
+                    Percent = table.Column<decimal>(nullable: false),
+                    ExpDate = table.Column<DateTime>(nullable: false),
+                    CreationDate = table.Column<DateTime>(nullable: false),
+                    WasReplenished = table.Column<bool>(nullable: false),
+                    CardId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Loans", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Loans_Cards_CardId",
+                        column: x => x.CardId,
+                        principalTable: "Cards",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Cards_ClientId",
                 table: "Cards",
@@ -215,9 +216,9 @@ namespace Bank.DAL.Migrations
                 column: "CardId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Loans_ClientId",
+                name: "IX_Loans_CardId",
                 table: "Loans",
-                column: "ClientId");
+                column: "CardId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Notifications_ClientId",

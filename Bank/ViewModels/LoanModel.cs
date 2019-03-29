@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Bank.DAL.Models;
 using Bank.Web.Resources;
@@ -45,7 +46,8 @@ namespace Bank.Web.ViewModels
                 Id = Id,
                 Money = Money,
                 Percent = Percent,
-                CardId = CardId
+                CardId = CardId,
+                ExpDate = ExpDate == null ? default(DateTime): CommonResources.ParseDate(ExpDate)
             };
         }
         

@@ -159,8 +159,6 @@ namespace Bank.DAL.Migrations
 
                     b.Property<int?>("CardId");
 
-                    b.Property<int?>("ClientId");
-
                     b.Property<DateTime?>("CreatedAt");
 
                     b.Property<DateTime>("CreationDate");
@@ -180,8 +178,6 @@ namespace Bank.DAL.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CardId");
-
-                    b.HasIndex("ClientId");
 
                     b.ToTable("Loans");
                 });
@@ -260,10 +256,6 @@ namespace Bank.DAL.Migrations
                     b.HasOne("Bank.DAL.Models.Card", "Card")
                         .WithMany()
                         .HasForeignKey("CardId");
-
-                    b.HasOne("Bank.DAL.Models.Client")
-                        .WithMany("Loans")
-                        .HasForeignKey("ClientId");
                 });
 
             modelBuilder.Entity("Bank.DAL.Models.Notification", b =>

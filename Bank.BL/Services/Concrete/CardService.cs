@@ -46,7 +46,7 @@ namespace Bank.BL.Services.Concrete
 
             var cvv2 = random.Next(0, 9999);
             card.CVV2 = cvv2.ToString().PadRight(4);
-            card.Money = 0;
+            card.Money = 10000;
             
             _uow.Repository<Card>().Add(card);
             _uow.SaveChanges();

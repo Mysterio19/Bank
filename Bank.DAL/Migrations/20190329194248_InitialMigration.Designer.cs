@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bank.DAL.Migrations
 {
     [DbContext(typeof(BankDbContext))]
-    [Migration("20190328182913_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20190329194248_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -159,25 +159,27 @@ namespace Bank.DAL.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("ClientId");
+                    b.Property<int?>("CardId");
 
                     b.Property<DateTime?>("CreatedAt");
 
-                    b.Property<string>("CreationDate");
+                    b.Property<DateTime>("CreationDate");
 
-                    b.Property<string>("ExpDate");
+                    b.Property<DateTime>("ExpDate");
 
                     b.Property<bool>("IsDeleted");
 
-                    b.Property<double>("Money");
+                    b.Property<decimal>("Money");
 
-                    b.Property<double>("Percent");
+                    b.Property<decimal>("Percent");
 
                     b.Property<DateTime?>("UpdateAt");
 
+                    b.Property<bool>("WasReplenished");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ClientId");
+                    b.HasIndex("CardId");
 
                     b.ToTable("Loans");
                 });
@@ -253,9 +255,9 @@ namespace Bank.DAL.Migrations
 
             modelBuilder.Entity("Bank.DAL.Models.Loan", b =>
                 {
-                    b.HasOne("Bank.DAL.Models.Client", "Client")
-                        .WithMany("Loans")
-                        .HasForeignKey("ClientId");
+                    b.HasOne("Bank.DAL.Models.Card", "Card")
+                        .WithMany()
+                        .HasForeignKey("CardId");
                 });
 
             modelBuilder.Entity("Bank.DAL.Models.Notification", b =>

@@ -7,6 +7,7 @@ using Bank.Common.Constants;
 using Bank.DAL.Extensions;
 using Bank.DAL.Models;
 using Bank.DAL.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Bank.BL.Services.Concrete
@@ -16,13 +17,11 @@ namespace Bank.BL.Services.Concrete
         private readonly IUnitOfWork _uow;
         private readonly ILogger<LoanService> _logger;
         private readonly IFormulaProvider _provider;
-        private readonly IMonthProvider _monthProvider;
 
-        public LoanService(IUnitOfWork uow, ILoggerFactory loggerFactory, IFormulaProvider provider, IMonthProvider monthProvider)
+        public LoanService(IUnitOfWork uow, ILoggerFactory loggerFactory, IFormulaProvider provider)
         {
             _uow = uow;
             _provider = provider;
-            _monthProvider = monthProvider;
             _logger = loggerFactory.CreateLogger<LoanService>();
         }
         
@@ -53,14 +52,20 @@ namespace Bank.BL.Services.Concrete
 
         public IEnumerable<Loan> GetAll(int userId)
         {
-            return _uow.Repository<Loan>().GetQueryable().Where(c => c.Card.Id == userId && !c.WasReplenished);
+            return _uow.Repository<Loan>().GetQueryable().Include(c => c.Card)
+                .Where(c => c.Card.ClientId == userId && !c.WasReplenished);
         }
 
         public void Refill(Loan loan)
         {
-            var calculatedMoney = _provider.GetResult(loan);          
-            var entity = _uow.Repository<Loan>().GetById(loan.Id);
+            var entity = _uow.Repository<Loan>().GetQueryable()
+                .Include(c => c.Card)
+                .SingleOrDefault(c => c.Id == loan.Id);
+            
+            var calculatedMoney = _provider.GetResult(entity);
            
+            if (entity.WasReplenished) return;
+            
             entity.RefillCredit(calculatedMoney);
             _uow.SaveChanges();
         }

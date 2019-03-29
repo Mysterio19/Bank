@@ -47,7 +47,8 @@ namespace Bank.Web.ViewModels
             {
                 Money = Money,
                 PercentPerMonth = PercentPerMonth,
-                CardId = CardId
+                CardId = CardId,
+                EndDate = CommonResources.ParseDate(EndDate)
             };
         }
     }

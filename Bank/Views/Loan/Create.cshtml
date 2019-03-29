@@ -15,11 +15,13 @@
         <input class="form-control" type="text" asp-for="Money" />
         <span asp-validation-for="Money" class="text-danger" />
     </div>
+    
     <div class="form-group">
-        <label asp-for="Percent">@CommonResources.CashbackPercent</label>
+        <label asp-for="Percent">@CommonResources.ChoosePercent</label>
         <input readonly="readonly" class="form-control" type="number" value="12" asp-for="Percent" />
         <span asp-validation-for="Percent" class="text-danger" />
     </div>
+    
     <div class="form-group">
         <label asp-for="CardId">@CommonResources.ChooseCard</label>
         <select class="form-control" asp-for="@Model.CardId">
@@ -29,11 +31,21 @@
             }
         </select>
     </div>
+    
+    <div class="form-group">
+        <label asp-for="ExpDate">@CommonResources.ChooseDate</label>
+        <select class="form-control" asp-for="@Model.ExpDate">
+            @foreach (var item in CommonResources.GetPeriodNames())
+            {
+                <option value="@item.Value">@item.Key</option>
+            }
+        </select>
+    </div>
 
     <div class="form-group">
         <div class="validation" asp-validation-summary="ModelOnly" />
     </div>
     <div>
-        <input type="submit" class="btn btn-success" value="Sign up" />
+        <input type="submit" class="btn btn-success" value="@CommonResources.Create" />
     </div>
 </form>

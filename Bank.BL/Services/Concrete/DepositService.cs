@@ -46,7 +46,9 @@ namespace Bank.BL.Services.Concrete
 
         public IEnumerable<Deposit> ViewAllByUserId(int userId)
         {
-            return _uow.Repository<Client>().GetById(userId).Cards.SelectMany(c => c.Deposits).Where(c => !c.WasTaken);
+            return _uow.Repository<Card>().GetQueryable()
+                .Where(c => c.ClientId == userId)
+                .SelectMany(c => c.Deposits).Where(c => !c.WasTaken);
         }
 
         public void TakeMoney(int userId)
@@ -57,7 +59,9 @@ namespace Bank.BL.Services.Concrete
             {
                 var current = deposits.ElementAt(i);
 
-                if (current.WasTaken) continue;
+                var expired = current.EndDate < DateTime.UtcNow;
+
+                if (current.WasTaken && !expired) continue;
 
                 var months = (current.EndDate - current.CreationDate).Days / 30;
 

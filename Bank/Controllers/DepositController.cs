@@ -36,6 +36,7 @@ namespace Bank.Web.Controllers
         [HttpPost]
         public IActionResult Create(DepositModel model)
         {
+            model.Cards = _cardService.GetAll(User.GetId()).ToList();
             if (!ModelState.IsValid) return View(model);
 
             try

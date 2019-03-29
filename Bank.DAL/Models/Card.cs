@@ -6,10 +6,6 @@ namespace Bank.DAL.Models
 {
     public class Card  : Entity
     {
-        public Card()
-        {
-            Deposits = new List<Deposit>();
-        }
 
         public string Name { get; set; }
         

@@ -16,7 +16,7 @@
     </div>    
 </div>
 
-<form asp-action="Register" asp-controller="Account" asp-anti-forgery="true">
+<form asp-action="Create" asp-controller="Deposit" asp-anti-forgery="true">
     <div class="form-group">
         <label asp-for="Money">@CommonResources.EnterMoneyCount</label>
         <input class="form-control" type="number" asp-for="Money" />
@@ -33,9 +33,19 @@
     <div class="form-group">
         <label asp-for="CardId">@CommonResources.ChooseCard</label>
         <select class="form-control" asp-for="@Model.CardId">
-            @foreach (var item in @Model.Cards)
+            @foreach (var item in Model.Cards)
             {
                 <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="EndDate">@CommonResources.ChooseDate</label>
+        <select class="form-control" asp-for="@Model.EndDate">
+            @foreach (var item in CommonResources.GetPeriodNames())
+            {
+                <option value="@item.Value">@item.Key</option>
             }
         </select>
     </div>
